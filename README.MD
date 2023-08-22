@@ -233,3 +233,10 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ![Alt text](images/image-24.png)
 
 ![Alt text](images/image-25.png)
+
+
+To stop K3s
+
+```
+/usr/local/bin/k3s-killall.sh
+```

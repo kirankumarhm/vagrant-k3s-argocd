@@ -240,3 +240,8 @@ To stop K3s
 ```
 /usr/local/bin/k3s-killall.sh
 ```
+
+To Restart again
+```
+sudo systemctl restart k3s
+```

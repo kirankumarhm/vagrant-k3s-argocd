@@ -65,15 +65,21 @@ end
 
 - Install K3s (please refer into the official website: https://k3s.io/ if it’s different step with the step in here) — it will take a while
 
-`curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode=644`
+```
+curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode=644
+```
 
 ![Alt text](images/image-4.png)
 
 - Check the nodes and pods (By default you need to go root for checking)
 
-`kubectl get nodes`  
+```
+kubectl get nodes
+```  
 
-`kubectl get po -A`
+```
+kubectl get po -A
+```  
 
 ![Alt text](images/image-5.png)
 
@@ -84,19 +90,26 @@ Make sure that the k3s config file is avalible in the */etc/rancher/k3s/k3s.yaml
 ![Alt text](images/image-6.png)
 
 Copy file to Vagrant's folder on the host machine  
-`sudo cp /etc/rancher/k3s/k3s.yaml /vagrant/config`
+```
+sudo cp /etc/rancher/k3s/k3s.yaml /vagrant/config
+```
 
 ![Alt text](images/image-7.png)
 
 ![Alt text](images/image-8.png)
 
 Exit from the vagrant machine 
-`exit`
+```
+exit
+```  
+
 
 On the Host machine, copy config file from the vagrant folder to .kube folder
 
-`cp config ~/.kube/`
-
+```
+cp config ~/.kube/
+```
+  
 Open *~/.kube/config* file in your favorate editor 
 
 ![Alt text](images/image-9.png)
@@ -119,15 +132,15 @@ Go to https://octant.dev/ and download from the Github link
 
 Depending on the host machine download the binaries, in my case I have downloaded octant_0.25.1_Linux-64bit.deb
 
-$ `wget https://github.com/vmware-archive/octant/releases/download/v0.25.1/octant_0.25.1_Linux-64bit.deb `
+$ ```wget https://github.com/vmware-archive/octant/releases/download/v0.25.1/octant_0.25.1_Linux-64bit.deb```  
 
 Install package
 
-$ `sudo dpkg -i octant_0.25.1_Linux-64bit.deb`
+$ ```sudo dpkg -i octant_0.25.1_Linux-64bit.deb```  
 
 execute command to open Kubernetes Web UI
 
-$ `octant`
+$ ```octant```  
 
 It will open in the default browser automatically http://127.0.0.1:7777/#/
 
@@ -135,13 +148,13 @@ It will open in the default browser automatically http://127.0.0.1:7777/#/
 
 ### Install ArgoCD on K3s  
 
-$ `kubectl create namespace argocd`
+$ ```kubectl create namespace argocd```  
 
-$ `kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`
+$ ```kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml```  
 
 After installation complete execute below command to verify installation successful.
 
-$ `kubectl get po -A -w`
+$ ```kubectl get po -A -w```
 
 ![Alt text](images/image-15.png)
 
@@ -201,7 +214,7 @@ https://192.168.56.40:30554/ and
 
 execute the below command to get password  
 
-`kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`
+``` kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d```
 
 ![Alt text](images/image-24.png)
 

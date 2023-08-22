@@ -132,15 +132,21 @@ Go to https://octant.dev/ and download from the Github link
 
 Depending on the host machine download the binaries, in my case I have downloaded octant_0.25.1_Linux-64bit.deb
 
-$ ```wget https://github.com/vmware-archive/octant/releases/download/v0.25.1/octant_0.25.1_Linux-64bit.deb```  
+```
+wget https://github.com/vmware-archive/octant/releases/download/v0.25.1/octant_0.25.1_Linux-64bit.deb
+```  
 
 Install package
 
-$ ```sudo dpkg -i octant_0.25.1_Linux-64bit.deb```  
+```
+sudo dpkg -i octant_0.25.1_Linux-64bit.deb
+```  
 
 execute command to open Kubernetes Web UI
 
-$ ```octant```  
+```
+octant
+```  
 
 It will open in the default browser automatically http://127.0.0.1:7777/#/
 
@@ -148,13 +154,19 @@ It will open in the default browser automatically http://127.0.0.1:7777/#/
 
 ### Install ArgoCD on K3s  
 
-$ ```kubectl create namespace argocd```  
+```
+kubectl create namespace argocd
+```  
 
-$ ```kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml```  
+```
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```  
 
 After installation complete execute below command to verify installation successful.
 
-$ ```kubectl get po -A -w```
+```
+kubectl get po -A -w
+```
 
 ![Alt text](images/image-15.png)
 
@@ -214,7 +226,9 @@ https://192.168.56.40:30554/ and
 
 execute the below command to get password  
 
-``` kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d```
+```
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```  
 
 ![Alt text](images/image-24.png)
 
